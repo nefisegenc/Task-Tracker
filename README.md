@@ -1,57 +1,57 @@
-# ✅ Görev Takibi — Checklist App
+# ✅ Task Tracker — Checklist App
 
-Nefise Genç tarafından Web Geliştirme dersi ödevi kapsamında geliştirilmiştir.
+Developed by Nefise Genç as a Web Development course project.
 
-## 🚀 Kullanılan Teknolojiler
+## 🚀 Technologies Used
 
-| Teknoloji | Amaç |
+| Technology | Purpose |
 |-----------|------|
-| **React 18** | UI kütüphanesi (Vite ile) |
-| **Tailwind CSS 3** | Stil / tasarım |
-| **localStorage** | Verinin tarayıcıda kalıcı saklanması |
+| **React 18** | UI library (with Vite) |
+| **Tailwind CSS 3** | Styling / design |
+| **localStorage** | Persistent data storage in the browser |
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 src/
 ├── components/
-│   ├── TaskForm.jsx      # Görev ekleme & güncelleme formu
-│   ├── TaskItem.jsx      # Tek görev satırı
-│   ├── TaskList.jsx      # Görev listesi
-│   └── TaskFilter.jsx    # Arama & filtre çubuğu
+│   ├── TaskForm.jsx      # Task add & update form
+│   ├── TaskItem.jsx      # Single task row
+│   ├── TaskList.jsx      # Task list
+│   └── TaskFilter.jsx    # Search & filter bar
 ├── interfaces/
-│   └── Task.js           # Task veri modeli & sabitleri
+│   └── Task.js           # Task data model & constants
 ├── pages/
-│   └── HomePage.jsx      # Ana sayfa (CRUD yönetimi)
+│   └── HomePage.jsx      # Home page (CRUD management)
 ├── App.jsx
 ├── main.jsx
 └── index.css
 ```
 
-## ⚙️ Kurulum
+## ⚙️ Installation
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 🌐 Netlify ile Yayına Alma
+## 🌐 Deploying with Netlify
 
 ```bash
 npm run build
-# dist/ klasörünü Netlify'a yükle
+# Upload the dist/ folder to Netlify
 ```
 
-## 🔑 Özellikler (CRUD)
+## 🔑 Features (CRUD)
 
-- ➕ **Ekle** — Başlık, açıklama, öncelik, kategori ve bitiş tarihi ile görev ekle
-- 📋 **Listele** — Tüm görevleri listele; arama, durum ve kategori filtrele
-- ✏️ **Güncelle** — Mevcut görevi düzenle ve kaydet
-- 🗑️ **Sil** — Görevi kalıcı olarak kaldır
+- ➕ **Create** — Add tasks with title, description, priority, category, and due date
+- 📋 **Read/List** — List all tasks; filter by search, status, and category
+- ✏️ **Update** — Edit and save an existing task
+- 🗑️ **Delete** — Permanently remove a task
 
-## 📸 Ekran Görüntüsü
+## 📸 Screenshot
 
-> `screenshot.png` — Proje klasörüne ekleyebilirsin.
+> `screenshot.png` — You can add it to the project folder.
 
 ---
 
