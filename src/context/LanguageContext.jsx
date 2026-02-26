@@ -43,7 +43,7 @@ const translations = {
     home_clear_completed: 'Tamamlananları temizle',
     home_confirm_delete: 'Bu görevi silmek istediğinden emin misin?',
     home_confirm_clear: 'Tamamlanan görevler silinsin mi?',
-    home_footer: 'Görev Takibi · React + Tailwind CSS',
+    home_footer: 'Görev Takibi · React + Tailwind CSS · Nefise Genç',
     col_status: 'Durum',
     col_priority: 'Öncelik',
     col_due: 'Tarih',
