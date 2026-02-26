@@ -49,6 +49,16 @@ npm run build
 - ✏️ **Update** — Edit and save an existing task
 - 🗑️ **Delete** — Permanently remove a task
 
-## 📸 Screenshot
+## 📸 Screenshots
 
-> `screenshot.png` — You can add it to the project folder.
+<details>
+  <summary>Click to view screenshots</summary>
+
+  ### Home Pages
+  ![Home Page 1](./public/screenshots/home.png)
+  ![Home Page 2](./public/screenshots/home_2.png)
+  ![Home Page 3](./public/screenshots/home_3.png)
+
+  ### Login
+  ![Login Page](./public/screenshots/login.png)
+</details>
