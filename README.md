@@ -52,7 +52,3 @@ npm run build
 ## 📸 Screenshot
 
 > `screenshot.png` — You can add it to the project folder.
-
----
-
-Made with ❤️ by Nefise Genç
