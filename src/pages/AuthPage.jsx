@@ -23,7 +23,7 @@ function AuthPage({ onAuth }) {
   const [showPass, setShowPass] = useState(false)
   const [error, setError]       = useState('')
   const [loading, setLoading]   = useState(false)
-  const { t } = useLanguage()
+  const { lang, toggleLang, t } = useLanguage()
 
   const isLogin = mode === 'login'
 
@@ -58,6 +58,37 @@ function AuthPage({ onAuth }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
+      {/* Dil Seçici — sağ üst köşe */}
+      <div className="fixed top-4 right-4 z-50">
+        <div
+          className="flex items-center rounded-full p-0.5"
+          style={{
+            background: 'rgba(255,255,255,0.06)',
+            border: '1px solid rgba(255,255,255,0.09)',
+          }}
+        >
+          {['tr', 'en'].map((l) => (
+            <button
+              key={l}
+              onClick={() => toggleLang(l)}
+              className={`relative px-3 py-1 text-xs font-semibold tracking-wider rounded-full transition-all duration-200 ${
+                lang === l ? 'text-white' : 'text-white/35 hover:text-white/60'
+              }`}
+              style={
+                lang === l
+                  ? {
+                      background: 'linear-gradient(135deg, rgba(20,184,166,0.75), rgba(13,148,136,0.75))',
+                      boxShadow: '0 0 8px rgba(20,184,166,0.3)',
+                    }
+                  : {}
+              }
+            >
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Arka plan parıltıları */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full"
@@ -70,8 +101,8 @@ function AuthPage({ onAuth }) {
         {/* Logo & Başlık */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4 shadow-lg"
-               style={{ background: 'linear-gradient(135deg, #3a3a4a, #2a2a38)', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <svg className="w-7 h-7 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               style={{ background: 'linear-gradient(135deg, rgba(20,184,166,0.85), rgba(13,148,136,0.85))', border: '1px solid rgba(94,234,212,0.3)', boxShadow: '0 0 20px rgba(20,184,166,0.3)' }}>
+            <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
             </svg>
@@ -99,9 +130,10 @@ function AuthPage({ onAuth }) {
                 }}
                 className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
                   mode === m
-                    ? 'bg-white/10 text-white shadow-sm'
+                    ? 'text-white shadow-sm'
                     : 'text-white/35 hover:text-white/55'
                 }`}
+                style={mode === m ? { background: 'rgba(20,184,166,0.18)', border: '1px solid rgba(94,234,212,0.25)' } : {}}
               >
                 {m === 'login' ? t('auth_login_tab') : t('auth_register_tab')}
               </button>
@@ -202,9 +234,9 @@ function AuthPage({ onAuth }) {
               disabled={loading}
               className="w-full py-3 rounded-xl font-semibold text-sm text-white transition-all duration-200 mt-1"
               style={{
-                background: loading ? 'rgba(255,255,255,0.08)' : 'linear-gradient(135deg,#4a4a5a,#3a3a4a)',
-                border: '1px solid rgba(255,255,255,0.12)',
-                boxShadow: loading ? 'none' : '0 4px 16px rgba(0,0,0,0.3)',
+                background: loading ? 'rgba(255,255,255,0.08)' : 'linear-gradient(135deg, rgba(20,184,166,0.9), rgba(13,148,136,0.9))',
+                border: loading ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(94,234,212,0.3)',
+                boxShadow: loading ? 'none' : '0 4px 20px rgba(20,184,166,0.35)',
               }}
             >
               {loading

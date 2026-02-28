@@ -20,7 +20,7 @@ function TaskList({ tasks, onToggle, onEdit, onDelete }) {
   }
 
   return (
-    <div className="space-y-2.5">
+    <div className="space-y-1.5">
       {tasks.map((task) => (
         <TaskItem
           key={task.id}

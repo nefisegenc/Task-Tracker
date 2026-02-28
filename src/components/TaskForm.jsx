@@ -29,7 +29,7 @@ function TaskForm({ onSubmit, editingTask = null, onCancel }) {
       {/* Form Başlık */}
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-             style={{ background: 'linear-gradient(135deg,#7c3aed,#6366f1)' }}>
+             style={{ background: 'linear-gradient(135deg, rgba(20,184,166,0.85), rgba(13,148,136,0.85))', border: '1px solid rgba(94,234,212,0.25)', boxShadow: '0 0 10px rgba(20,184,166,0.3)' }}>
           {isEditing
             ? <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
             : <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" /></svg>

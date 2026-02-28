@@ -208,40 +208,72 @@ export default function PolicyModal({ initialTab = 'disclosure', trigger }) {
       {open && (
         <div
           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center px-4 py-6 sm:py-10"
-          style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(6px)' }}
+          style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(8px)' }}
           onClick={(e) => { if (e.target === e.currentTarget) setOpen(false) }}
         >
           <div
             className="w-full max-w-lg rounded-2xl overflow-hidden flex flex-col"
             style={{
-              background: '#18181c',
-              border: '1px solid rgba(255,255,255,0.08)',
-              boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
+              background: 'linear-gradient(160deg, rgba(13,20,19,1) 0%, rgba(7,13,12,1) 100%)',
+              border: '1px solid rgba(94,234,212,0.14)',
+              boxShadow: '0 0 0 1px rgba(20,184,166,0.06) inset, 0 24px 80px rgba(0,0,0,0.75), 0 0 40px rgba(20,184,166,0.07)',
               maxHeight: '80vh',
             }}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 flex-shrink-0">
-              {/* Tabs */}
-              <div className="flex gap-1">
-                {['disclosure', 'privacy', 'terms'].map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setTab(t)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
-                      tab === t
-                        ? 'bg-white/10 text-white/90'
-                        : 'text-white/30 hover:text-white/55'
-                    }`}
-                  >
-                    {content[t].title}
-                  </button>
-                ))}
+            <div
+              className="flex items-center justify-between px-5 py-4 flex-shrink-0"
+              style={{ borderBottom: '1px solid rgba(94,234,212,0.1)' }}
+            >
+              {/* Logo + Tabs */}
+              <div className="flex items-center gap-3">
+                {/* Küçük teal ikon */}
+                <div
+                  className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(20,184,166,0.8), rgba(13,148,136,0.8))',
+                    border: '1px solid rgba(94,234,212,0.25)',
+                  }}
+                >
+                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                </div>
+                {/* Sekmeler */}
+                <div
+                  className="flex items-center rounded-full p-0.5"
+                  style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.07)',
+                  }}
+                >
+                  {['disclosure', 'privacy', 'terms'].map((t) => (
+                    <button
+                      key={t}
+                      onClick={() => setTab(t)}
+                      className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${
+                        tab === t ? 'text-white' : 'text-white/30 hover:text-white/55'
+                      }`}
+                      style={
+                        tab === t
+                          ? {
+                              background: 'linear-gradient(135deg, rgba(20,184,166,0.75), rgba(13,148,136,0.75))',
+                              boxShadow: '0 0 8px rgba(20,184,166,0.25)',
+                            }
+                          : {}
+                      }
+                    >
+                      {content[t].title}
+                    </button>
+                  ))}
+                </div>
               </div>
+
               {/* Kapat */}
               <button
                 onClick={() => setOpen(false)}
-                className="text-white/25 hover:text-white/60 transition-colors p-1"
+                className="text-white/25 hover:text-white/60 transition-colors p-1.5 rounded-lg hover:bg-white/5 ml-2 flex-shrink-0"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
@@ -249,14 +281,67 @@ export default function PolicyModal({ initialTab = 'disclosure', trigger }) {
               </button>
             </div>
 
+            {/* Aktif sekme başlığı */}
+            <div
+              className="px-5 pt-4 pb-3 flex-shrink-0"
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
+            >
+              <h2
+                className="text-base font-bold tracking-tight"
+                style={{
+                  background: 'linear-gradient(90deg, #fff 0%, rgba(94,234,212,0.9) 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                {current.title}
+              </h2>
+            </div>
+
             {/* İçerik */}
             <div className="overflow-y-auto px-5 py-5 space-y-5 flex-1">
-              {current.sections.map((sec) => (
-                <div key={sec.heading}>
-                  <h3 className="text-xs font-bold text-white/70 uppercase tracking-wider mb-1.5">{sec.heading}</h3>
-                  <p className="text-xs text-white/40 leading-relaxed whitespace-pre-line">{sec.body}</p>
+              {current.sections.map((sec, i) => (
+                <div key={sec.heading} className="flex gap-3">
+                  {/* Sol aksan çizgisi */}
+                  <div
+                    className="w-0.5 flex-shrink-0 rounded-full mt-0.5"
+                    style={{
+                      background: 'rgba(255,255,255,0.07)',
+                      minHeight: '16px',
+                    }}
+                  />
+                  <div>
+                    <h3
+                      className="text-xs font-bold uppercase tracking-wider mb-1.5"
+                      style={{ color: 'rgba(255,255,255,0.5)' }}
+                    >
+                      {sec.heading}
+                    </h3>
+                    <p className="text-xs leading-relaxed whitespace-pre-line" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                      {sec.body}
+                    </p>
+                  </div>
                 </div>
               ))}
+            </div>
+
+            {/* Footer */}
+            <div
+              className="px-5 py-3 flex-shrink-0 flex items-center justify-end"
+              style={{ borderTop: '1px solid rgba(94,234,212,0.08)' }}
+            >
+              <button
+                onClick={() => setOpen(false)}
+                className="text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200"
+                style={{
+                  background: 'rgba(20,184,166,0.12)',
+                  border: '1px solid rgba(94,234,212,0.2)',
+                  color: 'rgba(94,234,212,0.8)',
+                }}
+              >
+                Kapat
+              </button>
             </div>
           </div>
         </div>

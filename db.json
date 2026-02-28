@@ -1,0 +1,42 @@
+{
+  "tasks": [
+    {
+      "id": "9863a9d2-7625-4116-8e91-9acafda57a79",
+      "title": "Spor",
+      "description": "Sporda karın egzersizleri yapılacak( 20 dk), sonrasında koşuya çıkılacak",
+      "priority": "medium",
+      "category": "personal",
+      "completed": true,
+      "createdAt": "2026-02-28T11:50:06.334Z",
+      "dueDate": null
+    },
+    {
+      "id": "ede5ed05-6119-43ae-bb55-fdd3cec71e04",
+      "title": "İngilizce Çalışılacak",
+      "description": "IELTS çıkmış sorular çözülecek",
+      "priority": "low",
+      "category": "personal",
+      "completed": false,
+      "createdAt": "2026-02-28T11:52:46.344Z",
+      "dueDate": "2026-03-02"
+    },
+    {
+      "id": "4377052b-0543-4f47-98ce-eecb26149523",
+      "title": "Mail Kontrolü",
+      "description": "Mailler kontrol edilecek",
+      "priority": "high",
+      "category": "work",
+      "completed": false,
+      "createdAt": "2026-02-28T11:53:20.929Z",
+      "dueDate": "2026-03-03"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Demo User",
+      "email": "demo@gorevtakibi.com",
+      "password": "demo123"
+    }
+  ]
+}

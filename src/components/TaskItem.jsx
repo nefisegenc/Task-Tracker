@@ -1,15 +1,15 @@
-import { PRIORITY_CONFIG, CATEGORY_CONFIG } from '../interfaces/Task'
+import { CATEGORY_CONFIG } from '../interfaces/Task'
 import { useLanguage } from '../context/LanguageContext'
 
-const PRIORITY_GLOW = {
-  low:    'rgba(52,211,153,0.15)',
-  medium: 'rgba(251,191,36,0.15)',
-  high:   'rgba(248,113,113,0.2)',
+const PRIORITY_META = {
+  high:   { label: 'priority_high',   color: '#f87171', bg: 'rgba(239,68,68,0.1)',   border: 'rgba(239,68,68,0.18)',   icon: '🔴' },
+  medium: { label: 'priority_medium', color: '#fbbf24', bg: 'rgba(245,158,11,0.1)',  border: 'rgba(245,158,11,0.18)',  icon: '🟡' },
+  low:    { label: 'priority_low',    color: '#34d399', bg: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.15)', icon: '🟢' },
 }
 
 function TaskItem({ task, onToggle, onEdit, onDelete }) {
   const { t } = useLanguage()
-  const priority = PRIORITY_CONFIG[task.priority]
+  const pm = PRIORITY_META[task.priority] ?? PRIORITY_META.low
   const category = CATEGORY_CONFIG[task.category]
   const isOverdue = task.dueDate && !task.completed && new Date(task.dueDate) < new Date()
 
@@ -23,7 +23,7 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
       className={`glass-card-hover flex items-start gap-4 p-4 ${
         task.completed ? 'opacity-50' : ''
       }`}
-      style={!task.completed ? { boxShadow: `0 4px 16px ${PRIORITY_GLOW[task.priority] ?? 'rgba(0,0,0,0.2)'}` } : undefined}
+      style={!task.completed ? { boxShadow: `0 4px 16px ${pm.bg}` } : undefined}
     >
       {/* Checkbox */}
       <button
@@ -31,9 +31,9 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
         className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
           task.completed
             ? 'border-transparent'
-            : 'border-white/20 hover:border-violet-400'
+            : 'border-white/20 hover:border-sky-400/60'
         }`}
-        style={task.completed ? { background: 'linear-gradient(135deg,#7c3aed,#6366f1)', boxShadow: '0 0 12px rgba(124,58,237,0.4)' } : {}}
+        style={task.completed ? { background: 'linear-gradient(135deg,#0ea5e9,#0284c7)', boxShadow: '0 0 10px rgba(14,165,233,0.35)' } : {}}
         aria-label={task.completed ? t('item_aria_undo') : t('item_aria_complete')}
       >
         {task.completed && (
@@ -53,20 +53,32 @@ function TaskItem({ task, onToggle, onEdit, onDelete }) {
           </span>
 
           {/* Öncelik badge */}
-          <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-full border ${
-            task.priority === 'high'   ? 'bg-red-500/15 text-red-400 border-red-500/20' :
-            task.priority === 'medium' ? 'bg-yellow-500/15 text-yellow-400 border-yellow-500/20' :
-                                         'bg-emerald-500/15 text-emerald-400 border-emerald-500/20'
-          }`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${
-              task.priority === 'high' ? 'bg-red-400' : task.priority === 'medium' ? 'bg-yellow-400' : 'bg-emerald-400'
-            }`} />
-            {t(`priority_${task.priority}`)}
+          <span
+            className="inline-flex items-center gap-1.5 text-xs font-bold px-2 py-0.5 rounded"
+            style={{
+              background: pm.bg,
+              border: `1px solid ${pm.border}`,
+              color: pm.color,
+              letterSpacing: '0.04em',
+            }}
+          >
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor">
+              <rect width="8" height="8" rx="1.5"/>
+            </svg>
+            {t(pm.label).toUpperCase()}
           </span>
 
           {/* Kategori badge */}
-          <span className="text-xs text-white/40 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full">
-            {category.icon} {t(`category_${task.category}`)}
+          <span
+            className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-0.5 rounded"
+            style={{
+              background: 'rgba(255,255,255,0.055)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'rgba(255,255,255,0.55)',
+            }}
+          >
+            <span className="text-[11px]">{category.icon}</span>
+            {t(`category_${task.category}`)}
           </span>
         </div>
 
