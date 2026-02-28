@@ -62,13 +62,9 @@ npm test
 ### Home – Empty State
 ![Home Empty](public/screenshots/home_empty.png)
 
-### Home
-![Home](public/screenshots/home.png)
-
 ### Home – Task List
 ![Home Tasks](public/screenshots/home_tasks.png)
 
-### Home – Turkish
 ![Home TR](public/screenshots/home_tr.png)
 
 ### Privacy Policy Modal
@@ -80,4 +76,17 @@ npm test
 
 ```
 src/
-├── components/     # Nav
+├── components/     # Navbar, TaskForm, TaskItem, TaskList, TaskFilter, PolicyModal
+├── context/        # LanguageContext (TR/EN)
+├── interfaces/     # Task and User models
+├── pages/          # AuthPage, HomePage
+├── api.js          # API helpers (JSON Server)
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## Author
+
+**Nefise Genç** – [github.com/nefisegenc](https://github.com/nefisegenc)
