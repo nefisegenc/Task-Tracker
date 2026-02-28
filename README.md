@@ -1,68 +1,101 @@
-# ✅ Task Tracker — Checklist App
+# Task Tracker
 
-A task management web application developed as a Web Development course assignment.
+A responsive task management application built with **React**, **Tailwind CSS**, and **Vite**. Supports bilingual (TR/EN) interface, task categories, priority levels, due dates, and local persistence via JSON Server.
 
-## 🚀 Technologies Used
+---
 
-| Technology | Purpose |
-|-----------|------|
-| **React 18** | UI library (with Vite) |
-| **Tailwind CSS 3** | Styling / design |
-| **localStorage** | Persistent data storage in the browser |
+## Features
 
-## 📁 Project Structure
+- Add, edit, delete tasks
+- Mark tasks as completed
+- Filter by status (All / Active / Completed) and category (Personal, Work, Shopping, Other)
+- Search tasks by keyword
+- Priority levels: Low, Medium, High
+- Due date support
+- Progress bar
+- Bilingual UI (Turkish / English)
+- Authentication page (Login / Register)
+- Privacy Policy modal
+- Dark theme
 
-```
-src/
-├── components/
-│   ├── TaskForm.jsx      # Task add & update form
-│   ├── TaskItem.jsx      # Single task row
-│   ├── TaskList.jsx      # Task list
-│   └── TaskFilter.jsx    # Search & filter bar
-├── interfaces/
-│   └── Task.js           # Task data model & constants
-├── pages/
-│   └── HomePage.jsx      # Home page (CRUD management)
-├── App.jsx
-├── main.jsx
-└── index.css
-```
+---
 
-## ⚙️ Installation
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| UI | React 18, Tailwind CSS 3 |
+| Build | Vite 6 |
+| API | JSON Server 0.17 |
+| Testing | Vitest, Testing Library |
+
+---
+
+## Getting Started
 
 ```bash
+# Install dependencies
 npm install
+
+# Start the JSON Server (port 4000)
+npm run serve:api
+
+# Start the dev server (port 5173)
 npm run dev
 ```
 
-## 🌐 Deploying with Netlify
+---
 
-After pushing the project to GitHub and connecting it to Netlify, deployment happens automatically. You can also do it manually:
+## Running Tests
 
 ```bash
-npm run build
-# then upload the dist/ folder via the Netlify dashboard or CLI (`netlify deploy --prod`)
+npm test
 ```
 
-Live URL: **https://<your-site-name>.netlify.app/**  *(Copy from your Netlify dashboard)*
+---
 
-## 🔑 Features (CRUD)
+## Screenshots
 
-- ➕ **Create** — Add a task with title, description, priority, category and due date
-- 📋 **Read** — List all tasks; search, filter by status and category
-- ✏️ **Update** — Edit and save an existing task
-- 🗑️ **Delete** — Permanently remove a task
+### Login
+![Login](public/screenshots/login.png)
 
-## 📸 Screenshots
+### Home – Empty State
+![Home Empty](public/screenshots/home_empty.png)
 
-### Home Page — With Tasks
-![Home With Tasks](public/screenshots/home.png)
+### Home
+![Home](public/screenshots/home.png)
 
-### Home Page — Empty State
-![Home Empty](public/screenshots/home_2.png)
+### Home – Task List
+![Home Tasks](public/screenshots/home_tasks.png)
 
-### Task List
-![Task List](public/screenshots/home_3.png)
+### Home – Turkish
+![Home TR](public/screenshots/home_tr.png)
 
-### Policy Modal
-![Policy Modal](public/screenshots/home_4.png)
+### Home – Views 2 / 3 / 4
+![Home 2](public/screenshots/home_2.png)
+![Home 3](public/screenshots/home_3.png)
+![Home 4](public/screenshots/home_4.png)
+
+### Privacy Policy Modal
+![Policy Modal](public/screenshots/policy_modal.png)
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/     # Navbar, TaskForm, TaskItem, TaskList, TaskFilter, PolicyModal
+├── context/        # LanguageContext (TR/EN)
+├── interfaces/     # Task and User models
+├── pages/          # AuthPage, HomePage
+├── api.js          # API helpers (JSON Server)
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## Author
+
+**Nefise Genç** – [github.com/nefisegenc](https://github.com/nefisegenc)
