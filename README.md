@@ -1,72 +1,54 @@
-# ✅ Görev Takibi — Checklist App
+# ✅ Task Tracker — Checklist App
 
-Nefise Genç tarafından Web Geliştirme dersi ödevi kapsamında geliştirilmiştir.
+A task management web application developed as a Web Development course assignment.
 
-## 🚀 Kullanılan Teknolojiler
+## 🚀 Technologies Used
 
-| Teknoloji | Amaç |
+| Technology | Purpose |
 |-----------|------|
-| **React 18** | UI kütüphanesi (Vite ile) |
-| **Tailwind CSS 3** | Stil / tasarım |
-| **localStorage** | Verinin tarayıcıda kalıcı saklanması |
+| **React 18** | UI library (with Vite) |
+| **Tailwind CSS 3** | Styling / design |
+| **localStorage** | Persistent data storage in the browser |
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 src/
 ├── components/
-│   ├── TaskForm.jsx      # Görev ekleme & güncelleme formu
-│   ├── TaskItem.jsx      # Tek görev satırı
-│   ├── TaskList.jsx      # Görev listesi
-│   └── TaskFilter.jsx    # Arama & filtre çubuğu
+│   ├── TaskForm.jsx      # Task add & update form
+│   ├── TaskItem.jsx      # Single task row
+│   ├── TaskList.jsx      # Task list
+│   └── TaskFilter.jsx    # Search & filter bar
 ├── interfaces/
-│   └── Task.js           # Task veri modeli & sabitleri
+│   └── Task.js           # Task data model & constants
 ├── pages/
-│   └── HomePage.jsx      # Ana sayfa (CRUD yönetimi)
+│   └── HomePage.jsx      # Home page (CRUD management)
 ├── App.jsx
 ├── main.jsx
 └── index.css
 ```
 
-## ⚙️ Kurulum
+## ⚙️ Installation
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 🌐 Netlify İle Yayına Alma
+## 🌐 Deploying with Netlify
 
-Projeyi GitHub'a push ettikten sonra Netlify'e bağlandıysa otomatik deploy gerçekleşir. Aşağıdaki adımları elle de yapabilirsiniz:
+After pushing the project to GitHub and connecting it to Netlify, deployment happens automatically. You can also do it manually:
 
 ```bash
 npm run build
-# ardından dist/ içeriğini Netlify dashboard üzerinden ya da CLI (`netlify deploy --prod`) ile aktarın
+# then upload the dist/ folder via the Netlify dashboard or CLI (`netlify deploy --prod`)
 ```
 
-Canlı sürüm: **https://<kendi-site-adınız>.netlify.app/**  *(Netlify dashboard'dan kopyalayın)*
+Live URL: **https://<your-site-name>.netlify.app/**  *(Copy from your Netlify dashboard)*
 
-## 🔑 Özellikler (CRUD)
+## 🔑 Features (CRUD)
 
-- ➕ **Ekle** — Başlık, açıklama, öncelik, kategori ve bitiş tarihi ile görev ekle
-- 📋 **Listele** — Tüm görevleri listele; arama, durum ve kategori filtrele
-- ✏️ **Güncelle** — Mevcut görevi düzenle ve kaydet
-- 🗑️ **Sil** — Görevi kalıcı olarak kaldır
-
-## 📸 Ekran Görüntüleri
-
-### Ana Sayfa (Boş)
-![Home Empty](public/screenshots/home.png)
-
-### Ana Sayfa (Görevler ile)
-![Home With Tasks](public/screenshots/home_2.png)
-
-### Görev Listesi
-![Task List](public/screenshots/home_3.png)
-
-### Politika Modalı
-![Policy Modal](public/screenshots/home_4.png)
-
----
-
-Made with ❤️ by Nefise Genç
+- ➕ **Create** — Add a task with title, description, priority, category and due date
+- 📋 **Read** — List all tasks; search, filter by status and category
+- ✏️ **Update** — Edit and save an existing task
+- 🗑️ **Delete** — Permanently remove a task
