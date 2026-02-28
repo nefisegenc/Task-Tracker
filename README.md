@@ -52,3 +52,17 @@ Live URL: **https://<your-site-name>.netlify.app/**  *(Copy from your Netlify da
 - 📋 **Read** — List all tasks; search, filter by status and category
 - ✏️ **Update** — Edit and save an existing task
 - 🗑️ **Delete** — Permanently remove a task
+
+## 📸 Screenshots
+
+### Home Page — With Tasks
+![Home With Tasks](public/screenshots/home.png)
+
+### Home Page — Empty State
+![Home Empty](public/screenshots/home_2.png)
+
+### Task List
+![Task List](public/screenshots/home_3.png)
+
+### Policy Modal
+![Policy Modal](public/screenshots/home_4.png)
