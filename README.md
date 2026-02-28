@@ -1,65 +1,72 @@
-# ✅ Task Tracker — Checklist App
+# ✅ Görev Takibi — Checklist App
 
-Developed by Nefise Genç as a Web Development course project.
+Nefise Genç tarafından Web Geliştirme dersi ödevi kapsamında geliştirilmiştir.
 
-## 🚀 Technologies Used
+## 🚀 Kullanılan Teknolojiler
 
-| Technology | Purpose |
+| Teknoloji | Amaç |
 |-----------|------|
-| **React 18** | UI library (with Vite) |
-| **Tailwind CSS 3** | Styling / design |
-| **localStorage** | Persistent data storage in the browser |
+| **React 18** | UI kütüphanesi (Vite ile) |
+| **Tailwind CSS 3** | Stil / tasarım |
+| **localStorage** | Verinin tarayıcıda kalıcı saklanması |
 
-## 📁 Project Structure
+## 📁 Proje Yapısı
 
 ```
 src/
 ├── components/
-│   ├── TaskForm.jsx      # Task add & update form
-│   ├── TaskItem.jsx      # Single task row
-│   ├── TaskList.jsx      # Task list
-│   └── TaskFilter.jsx    # Search & filter bar
+│   ├── TaskForm.jsx      # Görev ekleme & güncelleme formu
+│   ├── TaskItem.jsx      # Tek görev satırı
+│   ├── TaskList.jsx      # Görev listesi
+│   └── TaskFilter.jsx    # Arama & filtre çubuğu
 ├── interfaces/
-│   └── Task.js           # Task data model & constants
+│   └── Task.js           # Task veri modeli & sabitleri
 ├── pages/
-│   └── HomePage.jsx      # Home page (CRUD management)
+│   └── HomePage.jsx      # Ana sayfa (CRUD yönetimi)
 ├── App.jsx
 ├── main.jsx
 └── index.css
 ```
 
-## ⚙️ Installation
+## ⚙️ Kurulum
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 🌐 Deploying with Netlify
+## 🌐 Netlify İle Yayına Alma
+
+Projeyi GitHub'a push ettikten sonra Netlify'e bağlandıysa otomatik deploy gerçekleşir. Aşağıdaki adımları elle de yapabilirsiniz:
 
 ```bash
 npm run build
-# Upload the dist/ folder to Netlify
+# ardından dist/ içeriğini Netlify dashboard üzerinden ya da CLI (`netlify deploy --prod`) ile aktarın
 ```
 
-## 🔑 Features (CRUD)
+Canlı sürüm: **https://<kendi-site-adınız>.netlify.app/**  *(Netlify dashboard'dan kopyalayın)*
 
-- ➕ **Create** — Add tasks with title, description, priority, category, and due date
-- 📋 **Read/List** — List all tasks; filter by search, status, and category
-- ✏️ **Update** — Edit and save an existing task
-- 🗑️ **Delete** — Permanently remove a task
+## 🔑 Özellikler (CRUD)
 
-## 📸 Screenshots
+- ➕ **Ekle** — Başlık, açıklama, öncelik, kategori ve bitiş tarihi ile görev ekle
+- 📋 **Listele** — Tüm görevleri listele; arama, durum ve kategori filtrele
+- ✏️ **Güncelle** — Mevcut görevi düzenle ve kaydet
+- 🗑️ **Sil** — Görevi kalıcı olarak kaldır
 
-<details>
-  <summary>Click to view screenshots</summary>
+## 📸 Ekran Görüntüleri
 
-  ### Home Pages
-  ![Home Page 1](./public/screenshots/home.png)
-  ![Home Page 2](./public/screenshots/home_2.png)
-  ![Home Page 3](./public/screenshots/home_3.png)
-  ![Home Page 4](./public/screenshots/home_4.png)
+### Ana Sayfa (Boş)
+![Home Empty](public/screenshots/home.png)
 
-  ### Login
-  ![Login Page](./public/screenshots/login.png)
-</details>
+### Ana Sayfa (Görevler ile)
+![Home With Tasks](public/screenshots/home_2.png)
+
+### Görev Listesi
+![Task List](public/screenshots/home_3.png)
+
+### Politika Modalı
+![Policy Modal](public/screenshots/home_4.png)
+
+---
+
+Made with ❤️ by Nefise Genç
